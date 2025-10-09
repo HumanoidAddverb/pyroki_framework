@@ -1,0 +1,106 @@
+Metadata-Version: 2.4
+Name: pyroki
+Version: 0.0.0
+Summary: Python Robot Kinematics Library
+License: MIT
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tyro
+Requires-Dist: jax>=0.4.0
+Requires-Dist: jaxlib
+Requires-Dist: jaxlie>=1.0.0
+Requires-Dist: jax_dataclasses>=1.0.0
+Requires-Dist: jaxtyping
+Requires-Dist: loguru
+Requires-Dist: robot_descriptions
+Requires-Dist: jaxls@ git+https://github.com/brentyi/jaxls.git
+Requires-Dist: yourdfpy
+Requires-Dist: trimesh
+Requires-Dist: viser
+Requires-Dist: pyliblzfse
+Provides-Extra: dev
+Requires-Dist: pyright>=1.1.308; extra == "dev"
+Requires-Dist: scikit-sparse; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: m2r2; extra == "dev"
+Dynamic: license-file
+
+# `PyRoki`: Python Robot Kinematics Library
+
+**[Project page](https://pyroki-toolkit.github.io/) &bull;
+[arXiv](https://arxiv.org/abs/2505.03728)**
+
+`PyRoki` is a modular, extensible, and cross-platform toolkit for kinematic optimization, all in Python.
+
+Core features include:
+
+- Differentiable robot forward kinematics model from a URDF.
+- Automatic generation of robot collision primitives (e.g., capsules).
+- Differentiable collision bodies with numpy broadcasting logic.
+- Common cost implementations (e.g., end effector pose, self/world-collision, manipulability).
+- Arbitrary costs, autodiff or analytical Jacobians.
+- Integration with a [Levenberg-Marquardt Solver](https://github.com/brentyi/jaxls) that supports optimization on manifolds (e.g., [lie groups](https://github.com/brentyi/jaxlie))
+- Cross-platform support (CPU, GPU, TPU).
+
+Please refer to the [documentation](https://chungmin99.github.io/pyroki/) for more details, features, and usage examples.
+
+---
+
+## Installation
+
+You can install `pyroki` with `pip`, on Python 3.12+:
+
+```
+git clone https://github.com/chungmin99/pyroki.git
+cd pyroki
+pip install -e .
+```
+
+Python 3.10-3.11 should also work, but support may be dropped in the future.
+
+## Status
+
+_May 6, 2025_: Initial release
+
+We are preparing and will release by _May 16, 2025_:
+
+- [x] Examples + documentation for hand / humanoid motion retargeting
+- [x] Documentation for using manually defined Jacobians
+- [x] Support with Python 3.10+
+
+## Citation
+
+This codebase is released with the following preprint.
+
+<table><tr><td>
+    Chung Min Kim*, Brent Yi*, Hongsuk Choi, Yi Ma, Ken Goldberg, Angjoo Kanazawa.
+    <strong>PyRoki: A Modular Toolkit for Robot Kinematic Optimization</strong>
+    arXiV, 2025.
+</td></tr>
+</table>
+
+<sup>\*</sup><em>Equal Contribution</em>, <em>UC Berkeley</em>.
+
+Please cite PyRoki if you find this work useful for your research:
+
+```
+@misc{pyroki2025,
+    title={PyRoki: A Modular Toolkit for Robot Kinematic Optimization},
+    author={Chung Min Kim* and Brent Yi* and Hongsuk Choi and Yi Ma and Ken Goldberg and Angjoo Kanazawa},
+    year={2025},
+    eprint={2505.03728},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO},
+    url={https://arxiv.org/abs/2505.03728},
+}
+```
+
+Thanks!
